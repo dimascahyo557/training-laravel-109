@@ -58,7 +58,7 @@ class CategoryController extends Controller
         // ]);
 
         // Menyimpan data (cara ke 3, mass assignment)
-        Category::create($request->all());
+        Category::create($inputs);
 
         // set flash message
         session()->flash('success', 'Category successfully saved');

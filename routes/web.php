@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,10 +33,13 @@ Route::get('/test', function () {
 
 Route::get('/admin', [DashboardController::class, 'index']);
 Route::get('/admin/category/create', [CategoryController::class, 'create']);
-Route::post('/admin/category/create', [CategoryController::class, 'store']);
+Route::post('/admin/category', [CategoryController::class, 'store'])->name('category.store');
 Route::get('/admin/category', [CategoryController::class, 'index']);
 Route::get('/admin/category/{category}', [CategoryController::class, 'show']);
 Route::get('/admin/category/{category}/edit', [CategoryController::class, 'edit']);
 
 Route::put('/admin/category/{category}', [CategoryController::class, 'update']);
 Route::delete('/admin/category/{category}', [CategoryController::class, 'destroy']);
+
+
+Route::resource('admin/product', ProductController::class);

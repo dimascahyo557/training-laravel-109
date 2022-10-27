@@ -69,7 +69,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('transaction.index') }}" class="nav-link @if(Request::is('admin/transaction*')) active @endif">
                         <i class="nav-icon fas fa-dollar-sign"></i>
                         <p>
                             Sales

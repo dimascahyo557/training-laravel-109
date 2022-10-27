@@ -133,6 +133,14 @@
                 <i class="fas fa-th-large"></i>
             </a>
         </li>
+        <li class="nav-item">
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <button type="submit" class="nav-link btn" onclick="return confirm('Yakin ingin keluar?')">
+                    <i class="fas fa-power-off"></i>
+                </button>
+            </form>
+        </li>
     </ul>
 </nav>
 <!-- /.navbar -->

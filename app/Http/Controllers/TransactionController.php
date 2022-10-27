@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TransactionExport;
 use App\Imports\TransactionsImport;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
@@ -32,5 +33,10 @@ class TransactionController extends Controller
         session()->flash('success', 'Transaction imported successfully');
         
         return redirect('admin/transaction');
+    }
+
+    public function export()
+    {
+        return Excel::download(new TransactionExport, 'data transaksi- ' . date('Y-m-d H-i-s') . '.xlsx');
     }
 }

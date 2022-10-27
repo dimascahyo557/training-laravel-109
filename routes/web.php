@@ -17,9 +17,11 @@ use App\Http\Controllers\TransactionController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return redirect('admin');
+//     // return view('welcome');
+// });
+Route::redirect('/', '/admin');
 
 Route::get('/test', function () {
     $data = 'Dimas Cahyo';
@@ -48,6 +50,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/transaction/create', [TransactionController::class, 'create'])->name('transaction.create');
     Route::post('/admin/transaction/import', [TransactionController::class, 'import'])->name('transaction.import');
     Route::get('/admin/transaction', [TransactionController::class, 'index'])->name('transaction.index');
+    Route::get('/admin/transaction/export', [TransactionController::class, 'export'])->name('transaction.export');
 });
 
 

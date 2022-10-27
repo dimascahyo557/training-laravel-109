@@ -21,6 +21,10 @@
     </div>
     <div class="card-body">
 
+        <a href="{{ route('transaction.export') }}" target="_blank" class="btn btn-success mb-3">
+            Export Excel
+        </a>
+
         <table class="table table-bordered">
             <thead>
                 <tr>

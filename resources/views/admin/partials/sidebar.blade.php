@@ -68,15 +68,17 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('transaction.index') }}" class="nav-link @if(Request::is('admin/transaction*')) active @endif">
-                        <i class="nav-icon fas fa-dollar-sign"></i>
-                        <p>
-                            Sales
-                            <span class="right badge badge-danger">New</span>
-                        </p>
-                    </a>
-                </li>
+                @if (auth()->user()->role == 'admin')
+                    <li class="nav-item">
+                        <a href="{{ route('transaction.index') }}" class="nav-link @if(Request::is('admin/transaction*')) active @endif">
+                            <i class="nav-icon fas fa-dollar-sign"></i>
+                            <p>
+                                Sales
+                                <span class="right badge badge-danger">New</span>
+                            </p>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

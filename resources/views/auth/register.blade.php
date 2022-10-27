@@ -8,6 +8,17 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -58,6 +69,17 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="role" class="col-md-4 col-form-label text-md-end">Role</label>
+
+                            <div class="col-md-6">
+                                <select name="role" id="role" class="form-control">
+                                    <option value="admin">Admin</option>
+                                    <option value="user">User</option>
+                                </select>
                             </div>
                         </div>
 
